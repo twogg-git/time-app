@@ -1,0 +1,12 @@
+{
+    "name": "TimeApp",
+    "version": "1.0.0",
+    "private": false,
+    "description": "Management software.",
+    "engines": {
+      "node": ">=13.0.0"
+    },
+    "dependencies": {
+    }
+  }
+  
