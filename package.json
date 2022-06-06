@@ -3,10 +3,17 @@
     "version": "1.0.0",
     "private": false,
     "description": "Management software.",
+    "main": "bin/hello.js",
     "engines": {
       "node": ">=13.0.0"
     },
     "dependencies": {
+        "express": "^4.13.4"
+    },
+    "devDependencies": {
+      "mocha": "^6.2.2"
+    },
+    "scripts": {
+        "test": "node test/hello.test.js"
     }
-  }
-  
+}
