@@ -24,7 +24,7 @@ RUN npm install --verbose
 FROM alpine:latest
 
 LABEL org.label-schema.schema-version="1.0"
-LABEL org.label-schema.docker.cmd="docker run -d -p 3000:3000 --name timeapp"
+LABEL org.label-schema.docker.cmd="docker run -d -p 8080:8080 --name timeapp"
 
 RUN apk add --no-cache nodejs npm
 
@@ -36,4 +36,4 @@ COPY --from=dependencies node_modules ./node_modules
 
 CMD npm run main
 
-EXPOSE 3000
+EXPOSE 8080
