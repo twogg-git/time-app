@@ -2,8 +2,7 @@ version: 2.1
 orbs:
   node: circleci/node@5.0.2
   heroku: circleci/heroku@1.2.6
-  aws-cli: circleci/aws-cli@0.1.4
-  aws-ecs: circleci/aws-ecs@0.0.10
+  aws-ecr: circleci/aws-ecr@0.0.4
 
 jobs:
   build_and_test:
@@ -34,10 +33,14 @@ jobs:
 workflows:
   test_my_app:
     jobs:
-      - build_and_test
-      - aws-ecr/build-and-push-image:
-          repo: "${AWS_RESOURCE_NAME_PREFIX}"
-          tag: "${CIRCLE_SHA1}"
+      - build_and_test      
+      - aws-ecr/build_and_push_image:
+          region: ${AWS_REGION}
+          account-url: ${AWS_ECR_ACCOUNT_URL}
+          repo: ${AWS_RESOURCE_NAME_PREFIX}
+          tag: ${CIRCLE_BUILD_NUM}
+          requires:
+            - build_test
       - deploy:
           requires:
             - build_and_test 
