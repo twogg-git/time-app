@@ -6,7 +6,7 @@ const port = process.env.PORT || 80
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  res.end('Time App - Hello yey!!!');
+  res.end('Testing and app!!!');
 });
  
 server.listen(port, host, () => {
