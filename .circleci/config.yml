@@ -3,6 +3,7 @@ orbs:
   node: circleci/node@5.0.2
   heroku: circleci/heroku@1.2.6
   aws-ecr: circleci/aws-ecr@0.0.4
+  aws-ecs: circleci/aws-ecs@0.0.11
 
 jobs:
   build_and_test:
