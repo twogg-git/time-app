@@ -33,17 +33,17 @@ jobs:
 workflows:
   test_my_app:
     jobs:
-      - build_and_test      
+      - build_and_test
       - aws-ecr/build_and_push_image:
           region: ${AWS_REGION}
           account-url: ${AWS_ECR_ACCOUNT_URL}
           repo: ${AWS_RESOURCE_NAME_PREFIX}
           tag: ${CIRCLE_BUILD_NUM}
           requires:
-            - build_test
+            - build_and_test
       - deploy:
           requires:
-            - build_and_test 
+            - build_and_test
           filters:
             branches:
               only: main 
