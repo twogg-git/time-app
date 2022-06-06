@@ -1,9 +1,8 @@
 {
-    "name": "TimeApp",
+    "name": "time-app",
     "version": "1.0.0",
     "private": false,
-    "description": "Management software.",
-    "main": "bin/hello.js",
+    "description": "",
     "engines": {
       "node": ">=13.0.0"
     },
@@ -14,6 +13,7 @@
       "mocha": "^6.2.2"
     },
     "scripts": {
+        "main": "node bin/hello.js",
         "test": "node test/hello.test.js"
     }
 }
