@@ -44,10 +44,11 @@ workflows:
             - build_and_test
       - aws-ecs/deploy-service-update:
           requires:
-            - aws-ecr/build_and_push_image
-          family: "nginx"
+            - aws-ecr/build-and-push-image
+          aws-region: ${AWS_REGION}
+          family: "nginx-task"
           cluster-name: "timeapp"
-          container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX}-service,tag=${CIRCLE_SHA1}"
+          container-image-name-updates: 'container=${AWS_RESOURCE_NAME_PREFIX}-service,tag=${CIRCLE_SHA1}'
       - deploy:
           requires:
             - build_and_test
