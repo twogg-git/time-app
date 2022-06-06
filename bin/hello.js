@@ -1,7 +1,12 @@
 const http = require('http');
  
-const host = '';
-const port = 8080;
+const host = '0.0.0.0';
+// var server = app.listen(PORT, function() {
+//   var host = server.address().address;
+//   var port = server.address().port;
+//   console.log("server is listening at http://%s:%s", host, port);
+// });
+const port = process.env.PORT || 80
  
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
